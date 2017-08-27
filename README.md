@@ -34,7 +34,6 @@ You can read more [here](https://github.com/alizain/ulid)
 4. Safe enough doesn’t show the user that you are getting information by id, for example `https://example.com/item/10`
 
 
-
 ## Installation
 
 To get started, require this package
@@ -61,8 +60,7 @@ Run composer update to download the package
 
 ## Usage
 
-#### Migrations
-
+### Migrations
 
 When using the migration you should change $table->increments('id') to:
 
@@ -89,15 +87,15 @@ Schema::create('items', function (Blueprint $table) {
   ....
   // related model that uses ULID
   $table->char('category_id', 26);
+  $table->foreign('category_id')->references('id')->on('categories');
   ....
   $table->timestamps();
 });
 ```
 
+### Models
 
-#### Models
-
-To set up a model to use ULID, simply use the UlidTrait and set the incrementing flag to false.
+To set up a model to use ULID, simply use the HasUlid trait and set the incrementing flag to false.
 
 ``` php
 use Illuminate\Database\Eloquent\Model;
@@ -119,13 +117,15 @@ class Item extends Model
 }
 ```
 
-#### Controller
+### Controller
 
-When you create a new instance of a model which uses Ulids, this package will automatically add Ulid as id of the model.
+When you create a new instance of a model which uses ULIDs, this package will automatically add ULID as id of the model.
 
 ``` php
 // 'HasUlid' trait will automatically generate and assign id field.
-$model = Item::create(['name' => 'Awesome item']);
+$item = Item::create(['name' => 'Awesome item']);
+echo $item->id;
+// 01brh9q9amqp7mt7xqqb6b5k58
 ```
 
 
