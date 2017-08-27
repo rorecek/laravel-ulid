@@ -1,0 +1,28 @@
+{
+    "name": "rorecek/laravel-ulid",
+    "description": "Laravel package for ULID (Universally Unique Lexicographically Sortable Identifier)",
+    "keywords": ["ulid", "uuid", "identifier", "guid"],
+    "homepage": "https://github.com/rorecek/laravel-ulid",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Rorecek",
+            "email": "info@laravelist.com",
+            "homepage": "https://laravelist.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^5.4 || ^7.0",
+        "paragonie/random_compat": "^1.0|^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rorecek\\Ulid\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {}
+}
