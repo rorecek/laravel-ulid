@@ -20,17 +20,17 @@ class Ulid
         $now = intval(microtime(true) * 1000);
 
         // Inicialize $lastTime property when executed for the first time
-        if (is_null($this->$lastTime)) {
+        if (is_null($this->lastTime)) {
             $this->$lastTime = $now - 1;
         }
 
-        // If current timestamp is lower then $lastTime, set it to $lastTime + 1
+        // If current timestamp is lower then lastTime, set it to lastTime + 1
         // to keep ULIDs sortable even when generated at the same microtime timestamp
-        if ($now > $this->$lastTime) {
-            $this->$lastTime = $now;
+        if ($now > $this->lastTime) {
+            $this->lastTime = $now;
         } else {
-            $this->$lastTime++;
-            $now = $this->$lastTime;
+            $this->lastTime++;
+            $now = $this->lastTime;
         }
 
         $timeChars = '';
