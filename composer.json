@@ -24,5 +24,14 @@
     "config": {
         "sort-packages": true
     },
-    "extra": {}
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rorecek\\Ulid\\UlidServiceProvider"
+            ],
+            "aliases": {
+                "Ulid": "Rorecek\\Ulid\\UlidFacade"
+            }
+        }
+    }
 }
