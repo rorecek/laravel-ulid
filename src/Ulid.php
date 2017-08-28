@@ -3,6 +3,7 @@ namespace Rorecek\Ulid;
 
 class Ulid
 {
+<<<<<<< HEAD
     private $app;
 
     // lowercased Crockford's Base32
@@ -14,6 +15,15 @@ class Ulid
         $this->app = $app;
     }
 
+=======
+    // lowercased Crockford's Base32
+    private const BASE32_SYMBOL_SET = '0123456789abcdefghjkmnpqrstvwxyz';
+    
+    private $lastTime = null;
+
+    public function __construct() {}
+
+>>>>>>> ab4acc99edc5b1595c08a54c000364d1c566bfae
     public function generate()
     {
         // Current microtime timestamp

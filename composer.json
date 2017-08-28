@@ -30,7 +30,11 @@
                 "Rorecek\\Ulid\\UlidServiceProvider"
             ],
             "aliases": {
+<<<<<<< HEAD
                 "Ulid": "Rorecek\\Ulid\\Facades\\Ulid"
+=======
+                "Ulid": "Rorecek\\Ulid\\UlidFacade"
+>>>>>>> ab4acc99edc5b1595c08a54c000364d1c566bfae
             }
         }
     }
