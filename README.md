@@ -59,7 +59,7 @@ You must install the service provider and facade:
 
 'aliases' => [
     ...
-    'Ulid' => Rorecek\Ulid\Facades\Ulid:class,
+    'Ulid' => Rorecek\Ulid\Facades\Ulid::class,
 ];
 ```
 
