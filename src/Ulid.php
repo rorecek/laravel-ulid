@@ -10,7 +10,7 @@ class Ulid implements Contracts\Factory
 
     public function __construct() {}
 
-    public function generate()
+    public function generate(): string
     {
         // Current microtime timestamp
         $now = intval(microtime(true) * 1000);

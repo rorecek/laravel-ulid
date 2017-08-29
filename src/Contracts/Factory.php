@@ -3,5 +3,5 @@ namespace Rorecek\Ulid\Contracts;
 
 interface Factory
 {
-    public function generate();
+    public function generate(): string;
 }
