@@ -7,6 +7,6 @@ class Ulid extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'ulid';
+        return \Rorecek\Ulid\Ulid::class;
     }
 }

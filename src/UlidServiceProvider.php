@@ -3,7 +3,6 @@
 namespace Rorecek\Ulid;
 
 use Illuminate\Support\ServiceProvider;
-use Rorecek\Ulid\Contracts\Factory;
 
 class UlidServiceProvider extends ServiceProvider
 {
@@ -24,8 +23,8 @@ class UlidServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Factory::class, function ($app) {
-            return new Ulid($app);
+        $this->app->singleton(Contracts\Factory::class, function ($app) {
+            return new Ulid();
         });
     }
 

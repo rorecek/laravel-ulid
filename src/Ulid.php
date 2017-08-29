@@ -1,18 +1,14 @@
 <?php
 namespace Rorecek\Ulid;
 
-class Ulid
+class Ulid implements Contracts\Factory
 {
-    private $app;
-
     // lowercased Crockford's Base32
     private const BASE32_SYMBOL_SET = '0123456789abcdefghjkmnpqrstvwxyz';
     
     private $lastTime = null;
 
-    public function __construct($app) {
-        $this->app = $app;
-    }
+    public function __construct() {}
 
     public function generate()
     {
@@ -21,7 +17,7 @@ class Ulid
 
         // Inicialize $lastTime property when executed for the first time
         if (is_null($this->lastTime)) {
-            $this->$lastTime = $now - 1;
+            $this->lastTime = $now - 1;
         }
 
         // If current timestamp is lower then lastTime, set it to lastTime + 1
