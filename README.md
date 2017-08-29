@@ -36,25 +36,31 @@ You can read more [here](https://github.com/alizain/ulid)
 
 ## Installation
 
-To get started, require this package
-
-- Via Composer
+You can install this package via composer using this command:
 
 ``` bash
- composer require rorecek/laravel-ulid
+ composer require rorecek/laravel-ulid:^2.0.0
 ```
 
-- Via composer.json file
+#### Laravel 5.5
+There is nothing else to do as the service provider and facade are going to be automaticaly discovered.
 
-Add the following to the `require` section of your projects `composer.json` file.
-``` php
-"rorecek/laravel-ulid": "1.*",
-```
+#### Laravel 5.3 and 5.4
+You must install the service provider and facade:
 
-Run composer update to download the package
+```php
+// config/app.php
+'providers' => [
+    ...
+    Rorecek\Ulid\UlidServiceProvider::class,
+];
 
-``` bash
- composer update
+...
+
+'aliases' => [
+    ...
+    'Ulid' => Rorecek\Ulid\Facades\Ulid:class,
+];
 ```
 
 
