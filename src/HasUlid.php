@@ -20,4 +20,9 @@ trait HasUlid
             }
         });
     }
+
+    public function getIncrementing()
+    {
+        return false;
+    }
 }

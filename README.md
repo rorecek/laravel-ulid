@@ -39,10 +39,10 @@ You can read more [here](https://github.com/alizain/ulid)
 You can install this package via composer using this command:
 
 ``` bash
- composer require rorecek/laravel-ulid:^2.0.0
+ composer require rorecek/laravel-ulid:^2.0
 ```
 
-#### Laravel 5.5
+#### Laravel 5.5+
 There is nothing else to do as the service provider and facade are going to be automaticaly discovered.
 
 #### Laravel 5.3 and 5.4
@@ -101,7 +101,7 @@ Schema::create('items', function (Blueprint $table) {
 
 ### Models
 
-To set up a model to use ULID, simply use the HasUlid trait and set the incrementing flag to false.
+To set up a model to use ULID, simply use the HasUlid trait.
 
 ``` php
 use Illuminate\Database\Eloquent\Model;
@@ -110,16 +110,6 @@ use Rorecek\Ulid\HasUlid;
 class Item extends Model
 {
   use HasUlid;
-  ....
-  
-  /**
-  * Indicates if the IDs are auto-incrementing.
-  *
-  * @var bool
-  */
-  public $incrementing = false;
-
-  ....
 }
 ```
 
