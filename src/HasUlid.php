@@ -25,4 +25,9 @@ trait HasUlid
     {
         return false;
     }
+
+    public function getKeyType()
+    {
+        return 'string';
+    }
 }
