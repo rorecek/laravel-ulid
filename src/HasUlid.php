@@ -3,10 +3,8 @@ namespace Rorecek\Ulid;
 
 trait HasUlid
 {
-    protected static function boot()
+    protected static function bootHasUlid()
     {
-        parent::boot();
-
         static::creating(function ($model) {
             if (! $model->id) {
                 $model->id = \Ulid::generate();
