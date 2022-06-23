@@ -5,16 +5,18 @@ trait HasUlid
 {
     protected static function bootHasUlid()
     {
-        static::creating(function ($model) {
-            if (! $model->id) {
-                $model->id = \Ulid::generate();
+        $column = property_exists(static::class, 'ulidColumn') ? static::$ulidColumn : 'id';
+
+        static::creating(function ($model) use ($column) {
+            if (! $model->{$column}) {
+                $model->{$column} = Ulid::generate();
             }
         });
 
-        static::saving(function ($model) {
-            $originalUlid = $model->getOriginal('id');
-            if ($originalUlid !== $model->id) {
-                $model->id = $originalUlid;
+        static::saving(function ($model) use ($column) {
+            $originalUlid = $model->getOriginal($column);
+            if ($originalUlid !== $model->{$column}) {
+                $model->{$column} = $originalUlid;
             }
         });
     }
