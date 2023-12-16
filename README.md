@@ -71,14 +71,14 @@ You must install the service provider and facade:
 When using the migration you should change $table->increments('id') to:
 
 ``` php
-$table->char('id', 26)->primary();
+$table->ulid()->primary(); // creates 'id' column by default
 ```
 
 > Simply, the schema seems something like this.
 
 ``` php
 Schema::create('items', function (Blueprint $table) {
-  $table->char('id', 26)->primary();
+  $table->ulid()->primary(); // creates 'id' column by default
   ....
   ....
   $table->timestamps();
@@ -89,10 +89,10 @@ If the related model is using an ULID, the column type should reflect that also.
 
 ``` php
 Schema::create('items', function (Blueprint $table) {
-  $table->char('id', 26)->primary();
+  $table->ulid()->primary();
   ....
   // related model that uses ULID
-  $table->char('category_id', 26);
+  $table->ulid('category_id');
   $table->foreign('category_id')->references('id')->on('categories');
   ....
   $table->timestamps();

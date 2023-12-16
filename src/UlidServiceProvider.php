@@ -3,6 +3,7 @@
 namespace Rorecek\Ulid;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Schema\Blueprint;
 
 class UlidServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,9 @@ class UlidServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blueprint::macro('ulid', function ($column = 'id') {
+            return $this->char($column, 26)->unique();
+        });
     }
 
     /**
